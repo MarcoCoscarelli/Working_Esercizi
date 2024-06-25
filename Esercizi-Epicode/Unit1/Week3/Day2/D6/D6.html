@@ -296,7 +296,7 @@
   const hideImages = function () {
   const images = document.querySelectorAll('#tableArea img');
   images.forEach(img => {
-    img.style.display = img.style.display === 'none' ? '' : 'none';
+    img.style.visibility = (img.style.visibility === 'hidden') ? 'visible' : 'hidden';
   });
 };
 
