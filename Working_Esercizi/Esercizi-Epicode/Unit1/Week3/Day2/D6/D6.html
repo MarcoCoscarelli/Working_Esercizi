@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    body div,
+    footer {
+      padding: 1rem;
+    }
+
+    footer {
+      padding: 1rem;
+      background-color: black;
+      color: white;
+    }
+
+    .myHeading {
+      color: #ff00d6;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div>
+    <h1>Questo è il titolo della pagina</h1>
+    <h2>Questo è il sottotitolo della pagina</h2>
+  </div>
+
+  <div>
+    <hr />
+
+    <ul id="firstList">
+      <li>1st</li>
+      <li>2nd</li>
+      <li>3rd</li>
+    </ul>
+
+    <ul id="secondList">
+      <li>1st</li>
+      <li>2nd</li>
+      <li>3rd</li>
+    </ul>
+
+    <a href="https://epicode.com/it/">Questo link porta al sito di Epicode</a>
+
+    <div>
+      <p>Questo testo è un placeholder per gli esercizi</p>
+    </div>
+  </div>
+
+  <div>
+    <p>Anche questo testo è per gli esercizi</p>
+    <h2 id="changeMyColor" style="color: #ff00d6">
+      Apri questa pagina con VSCode per scoprire gli esercizi
+    </h2>
+  </div>
+
+  <div id="tableArea"></div>
+  <button onclick="hideImages()">Nascondi/Mostra Immagini</button>
+
+  <footer>
+    <h3>
+      DOM Manipulation is super
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents">AWESOME!</a>
+    </h3>
+  </footer>
+  <script>
+    /* ESERCIZIO 1
+     Scrivi una funzione per cambiare il titolo della pagina in qualcos'altro
+  */
+
+
+    const changeTitle = function () {
+      document.title = 'Dom-traversing & Manipulation';
+    };
+
+    /* ESERCIZIO 2
+     Scrivi una funzione per aggiungere al titolo della pagina una classe "myHeading"
+  */
+
+    const addClassToTitle = function () {
+      const title = document.querySelector('h1');
+      title.classList.add('myHeading');
+    };
+
+    /* ESERCIZIO 3
+     Scrivi una funzione che cambi il testo dei p figli di un div
+    */
+
+    const changePcontent = function () {
+      const paragraph = document.querySelectorAll('div p');
+      paragraph.forEach(p => {
+        p.textContent = 'Testo da javascript';
+      });
+    };
+
+    /* ESERCIZIO 4
+     Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
+    */
+
+    const changeUrls = function () {
+      const changelink = document.querySelectorAll('a:not(footer a)');
+      changelink.forEach(link => {
+        link.href = 'https://www.google.com';
+      });
+    };
+
+    /* ESERCIZIO 5
+     Scrivi una funzione che aggiunga un nuovo elemento lista alla seconda lista non ordinata
+  */
+
+    const addToTheSecond = function () {
+      const secondList = document.getElementById('secondList');
+      const newItem = document.createElement('li');
+      newItem.textContent = 'Elemento aggiunto da javascript';
+      secondList.appendChild(newItem);
+    };
+
+    /* ESERCIZIO 6
+     Scrivi una funzione che aggiunga un paragrafo al primo div
+  */
+
+    const addParagraph = function () {
+      const divAdder = document.querySelector('body div');
+      const newParagraph = document.createElement('p');
+      newParagraph.textContent = 'Testo paragrafo aggiunto da javascipt';
+      divAdder.appendChild(newParagraph);
+      ;
+    }
+
+
+    /* ESERCIZIO 7
+     Scrivi una funzione che faccia scomparire la prima lista non ordinata
+  */
+
+    const hideFirstUl = function () {
+      const firstUl = document.getElementById('firstList');
+      firstUl.style.display = 'none';
+    };
+
+    /* ESERCIZIO 8 
+     Scrivi una funzione che renda verde il background di ogni lista non ordinata
+    */
+
+    const paintItGreen = function () {
+      const listColor = document.querySelectorAll('ul');
+      listColor.forEach(list => {
+        list.style.backgroundColor = 'green';
+      });
+    };
+
+    /* ESERCIZIO 9
+     Scrivi una funzione che rimuova l'ultima lettera dall'h1 ogni volta che l'utente lo clicca
+    */
+    const h1 = document.querySelector('h1');
+    const makeItClickable = function () {
+
+      const originalH1 = h1.textContent;
+
+      h1.addEventListener('click', function () {
+        if (h1.textContent.length > 1) {
+          h1.textContent = h1.textContent.slice(0, -1);
+        } else
+          h1.textContent = originalH1;
+
+      });
+    };
+
+
+
+    /* ESERCIZIO 10
+     Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
+    */
+
+    const revealFooterLink = function () {
+      const footer = document.querySelector('footer');
+      const link = footer.querySelector('a');
+      footer.addEventListener('click', function () {
+        alert(link.href);
+      });
+    };
+
+
+    /* ESERCIZIO 11
+     Crea una funzione che crei una tabella nell'elemento con id "tableArea". 
+     La tabella avrà 5 elementi e questa struttura: immagine, nome prodotto, quantità, prezzo
+  */
+    const products = [
+      {
+        img: 'https://www.systemshop.it/3751/lampada-da-tavolo-led-7w-600lm-perenz-bianca-6026-b-dimmerabile-e-cambio-temperatura-luce.jpg',
+        name: 'Lampada led',
+        quantity: 10,
+        price: 9.99
+      },
+      {
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT38h_LdxINojZTnhtx9NeNMoY6uh0l3YbZNOdCH7OmsjFHZ4Jk8ie89o0LuCpH3tkdSgA&usqp=CAU',
+        name: 'Supporto Monitor',
+        quantity: 5,
+        price: 19.99
+      },
+      {
+        img: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ2PMEmdgM3BxhfqsAg8VbQgexQE8M44bzCSS5-shzkl4i8ta5h',
+        name: 'Kit Sottomano',
+        quantity: 8,
+        price: 14.99
+      },
+      {
+        img: 'https://www.bpm-power.com/cdn-cgi/image/quality=90,fit=scale-down,f=auto/var/catalog/orig/3082314.jpg',
+        name: 'Tastiera wireless',
+        quantity: 15,
+        price: 29.99
+      },
+      {
+        img: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSkxr0Z4g8LVT-QElRE6ttlVhsCNxl2AwARvniTVm1pP0rsW7uw',
+        name: 'Speaker Laptop',
+        quantity: 20,
+        price: 39.99
+      }
+    ];
+
+    function generateTable() {
+      const tableArea = document.getElementById('tableArea');
+
+
+      const table = document.createElement('table');
+      table.style.width = '100%';
+      table.style.borderCollapse = 'collapse';
+      table.style.border = '1px solid black';
+
+
+      const headerRow = document.createElement('tr');
+      const headers = ['Immagine', 'Nome Prodotto', 'Quantità', 'Prezzo'];
+
+      headers.forEach(headerText => {
+        const th = document.createElement('th');
+        th.textContent = headerText;
+        th.style.border = '1px solid black';
+        th.style.padding = '8px';
+        headerRow.appendChild(th);
+      });
+
+      table.appendChild(headerRow);
+
+      products.forEach(product => {
+        const row = document.createElement('tr');
+
+        Object.values(product).forEach(value => {
+          const td = document.createElement('td');
+
+          if (typeof value === 'string' && value.startsWith('http')) {
+            const img = document.createElement('img');
+            img.src = value;
+            img.style.width = '100px';
+            td.appendChild(img);
+          } else {
+            td.textContent = value;
+          }
+
+          td.style.border = '1px solid black';
+          td.style.padding = '8px';
+          row.appendChild(td);
+        });
+
+        table.appendChild(row);
+      });
+
+      tableArea.appendChild(table);
+    }
+
+
+    /* ESERCIZIO 12
+     Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
+  */
+
+    const addRow = function () { }
+
+    /* ESERCIZIO 14
+    Crea una funzione che nasconda le immagini della tabella quando eseguita
+  */
+
+ 
+  const hideImages = function () {
+  const images = document.querySelectorAll('#tableArea img');
+  images.forEach(img => {
+    img.style.visibility = (img.style.visibility === 'hidden') ? 'visible' : 'hidden';
+  });
+};
+
+
+    /* EXTRA ESERCIZIO 15
+    Crea una funzione che cambi il colore del h2 con id "changeMyColor" con un colore random ad ogni click ricevuto
+  */
+
+    const randomizedColor = function () {
+      const h2 = document.getElementById('changeMyColor');
+      h2.addEventListener('click', function () {
+        const randomColor = '#' + Math.floor(Math.random() * 967872953).toString(16);
+        h2.style.color = randomColor;
+      });
+    };
+
+    // Recall funzioni
+    
+    
+    window.addEventListener('DOMContentLoaded', (event) => {
+      
+      changeTitle();
+      addClassToTitle();
+      changePcontent();
+      changeUrls();
+      addToTheSecond();
+      addParagraph();
+      hideFirstUl();
+      paintItGreen();
+      makeItClickable();
+      revealFooterLink();
+      generateTable();
+      randomizedColor();
+      
+
+
+
+
+
+    });
+  
+  </script>
+</body>
+
+</html>

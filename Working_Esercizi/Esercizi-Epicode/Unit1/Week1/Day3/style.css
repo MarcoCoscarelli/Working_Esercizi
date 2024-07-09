@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+body {
+    text-align: center;
+    margin: 0;
+    
+}
+#logo {
+    width: 250px;
+    margin:1.2rem 0;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    
+
+}
+.content {
+    width: 50%;
+    text-align: left;
+    margin:auto;
+}
+.content video {
+    box-shadow: 4px 4px 8px 0px ;
+    border-radius: 15px;
+    width: 100%;
+}
+#autore {
+    text-align: center;
+    margin-top: 1rem;
+    display: block;
+    color: rgba(0, 0, 0, 0.356);
+
+}
+#featured span {
+    display: block;
+    color: #b5460f;
+  
+}
+#featured {
+
+    margin-top: 1.5rem;
+    padding-left: 1rem;
+    border-left: 1px solid #ffd877 ;
+}
+.ingredients {
+    margin-top: 3rem;
+}
+.ingredients p,ol li p:first-of-type {font-weight: bold;}
+
+.header-section {
+    margin-bottom: auto;
+    border-bottom: 1px solid rgba(47, 255, 238, 0.87);
+}
+ul {
+    margin-bottom: 1.5rem;
+}
+li {
+    margin-bottom: 1rem;
+}
+nav {
+    border-top: 1px solid #ffd877;
+    background-color: rgba(226, 208, 208, 0.445);
+    font-size: 0.9rem;
+    padding: 1rem;
+    color: rgb(0, 116, 77);
+
+}
+h2 {font-weight: 80;}

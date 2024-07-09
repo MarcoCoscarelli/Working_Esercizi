@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tombola</title>
+    <link rel="stylesheet" href="./Assets/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="board" class="board"></div>
+        
+        <div id="drawn-numbers" class="drawn-numbers"></div>
+        <div class="btn-bar">
+            <button id="draw-button" >Estrai Numero</button>
+            <button id="reset-button" >Reset</button>
+        </div>
+        
+        <div class="player-section">
+        
+            <label for="num-cards">Numero di cartelle:</label>
+            <input type="number" id="num-cards" min="1" max="10" value="1">
+            <button id="generate-cards-button">Genera Cartelle</button>
+            <div id="player-cards" class="player-cards">
+                
+            </div>
+        </div>
+    </div>
+    <script src="./Assets/script.js"></script>
+</body>
+</html>
+
